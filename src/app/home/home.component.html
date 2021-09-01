@@ -1,0 +1,45 @@
+<h2> Bienvenido</h2>
+<div class="alert alert alert-warning">
+  <h4 class="alert-heading">REGISTRO DE ICONOS NUEVOS</h4>
+  <p class="mb-0">Aqui podras regitrar iconos para utilizarlos posteriormente.</p>
+</div>
+<div class="mx-auto">
+  <form  [formGroup]="iconoForm" class="mt-2 mb-5">
+    <div class="row col-md-12">
+      <div class="row">
+        <div class="col-md-5 col-sm-12 mb-3 col-sm-12 align-s-center">
+          <div class="form-group">
+              <label for="formFile" class="form-label mt-4">Sube una imagen de tu producto</label>
+              <input class="form-control btn-primary"
+                            (change)="handleImage($event)"
+                            type="file" id="formFile">
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-12 mb-5 img-container mx-auto">
+          <img src="{{url}}" alt="">
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" 
+                class="form-control"
+                id="floatingInput" 
+                placeholder="Nombre del icono"
+                formControlName = "titulo">
+        <label for="floatingInput">Nombre del icono</label>
+        <div class="invalid-feedback">
+          <span *ngIf="iconoForm.get('titulo').errors?.minlength">
+              {{messages.minLength}}
+          </span>
+      </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-success me-3" 
+            (click)="onSave()"
+            [title]="iconoForm.valid ? 'Guarda tus datos' : 'Completa todos los campos'"
+            [disabled]="!iconoForm.valid"
+            >Guardar Cambios</button>
+    <button type="submit" class="btn btn-outline-danger" >
+      Cancelar
+    </button>  
+  </form>
+</div>

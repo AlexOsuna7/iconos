@@ -1,0 +1,25 @@
+img{
+    width: 50%;
+    box-shadow: rgb(40, 42, 43 / 30%);
+    border-radius: 3%;
+}
+
+.img-container{
+    height: 120%;
+}
+
+.align-s-center{
+    align-self: center;
+    padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+
+    .align-s-center{
+        padding-bottom: 10px;
+    }
+
+    img{
+        width: 100%;
+    }
+}

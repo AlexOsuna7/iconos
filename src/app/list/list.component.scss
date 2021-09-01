@@ -1,0 +1,11 @@
+.card-img, .card-img-top {
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px; 
+}
+.card-img, .card-img-bottom {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.card{
+    max-width: 500px;
+}

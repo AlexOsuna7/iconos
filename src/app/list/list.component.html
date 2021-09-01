@@ -1,0 +1,28 @@
+<div class="alert alert alert-primary">
+  <h4 class="alert-heading">LISTA DE ICONOS ALMACENADOS</h4>
+  <p class="mb-0">Aqui podras ver los iconos que estan registrados actualmente.</p>
+</div>
+<div class="container">
+  <div class="m-1 row" >
+    <div class="card m-3 p-0 mx-auto" *ngFor = "let item of icons | async | paginate: { itemsPerPage: 6, currentPage: page }">
+      <div class="row no-gutters">
+        <div class="col-sm-7 mx-auto">
+          <img src={{item.urlIcono}} class="card-img m-2" alt="...">
+        </div>
+        <div class="col-sm-8">
+          <div class="card-body">
+            <h5 class="text-primary">{{item.titulo}}</h5>
+            <button type="button" class="btn btn-outline-primary me-2" (click)= "onGoToEdit(item)">Editar</button>
+            <button type="button" class="btn btn-outline-danger" (click)= "delete(item.id)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <pagination-controls 
+    class="text-center m-3" 
+    (pageChange)="page = $event"
+    previousLabel="Anterior"
+    nextLabel="Siguiente">
+  </pagination-controls>
+</div>
